@@ -230,31 +230,41 @@ partners@amorimglobal.com</pre>
   <p>Baixe o kit no idioma do parceiro e envie em anexo no e-mail de onboarding. Contém: apresentação da Amorim, portfólio de serviços e guia de indicação.</p>
 
   <div class="presentation-grid">
-    <div class="presentation-card" onclick="window.open('partner-kit-pt.pdf')">
-      <div class="pres-icon">🇧🇷</div>
-      <div class="pres-info">
-        <h4>Partner Kit — Português</h4>
-        <p>Guia completo em português para parceiros brasileiros</p>
+    <a href="partner-kit-pt.pdf" download="Partner-Kit-Amorim-PT.pdf" style="text-decoration:none;color:inherit">
+      <div class="presentation-card">
+        <div class="pres-icon">🇧🇷</div>
+        <div class="pres-info">
+          <h4>Partner Kit — Português</h4>
+          <p>Guia completo em português para parceiros brasileiros</p>
+        </div>
+        <span class="pres-arrow">↓</span>
       </div>
-      <span class="pres-arrow">↓</span>
-    </div>
-    <div class="presentation-card" onclick="window.open('partner-kit-es.pdf')">
-      <div class="pres-icon">🇪🇸</div>
-      <div class="pres-info">
-        <h4>Partner Kit — Español</h4>
-        <p>Guía completa en español para socios latinoamericanos</p>
+    </a>
+    <a href="partner-kit-es.pdf" download="Partner-Kit-Amorim-ES.pdf" style="text-decoration:none;color:inherit">
+      <div class="presentation-card">
+        <div class="pres-icon">🇪🇸</div>
+        <div class="pres-info">
+          <h4>Partner Kit — Español</h4>
+          <p>Guía completa en español para socios latinoamericanos</p>
+        </div>
+        <span class="pres-arrow">↓</span>
       </div>
-      <span class="pres-arrow">↓</span>
-    </div>
-    <div class="presentation-card" onclick="window.open('partner-kit-en.pdf')">
-      <div class="pres-icon">🇺🇸</div>
-      <div class="pres-info">
-        <h4>Partner Kit — English</h4>
-        <p>Complete guide in English for international partners</p>
+    </a>
+    <a href="partner-kit-en.pdf" download="Partner-Kit-Amorim-EN.pdf" style="text-decoration:none;color:inherit">
+      <div class="presentation-card">
+        <div class="pres-icon">🇺🇸</div>
+        <div class="pres-info">
+          <h4>Partner Kit — English</h4>
+          <p>Complete guide in English for international partners</p>
+        </div>
+        <span class="pres-arrow">↓</span>
       </div>
-      <span class="pres-arrow">↓</span>
-    </div>
+    </a>
   </div>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:8px">
+    💡 Os PDFs devem estar na raiz do projeto Netlify (mesma pasta do <code>index.html</code>).
+  </p>
+</section>
 </section>
 
 <!-- ── 05 COMISSÕES ──────────────────────────────────────────── -->
@@ -295,18 +305,17 @@ partners@amorimglobal.com</pre>
 <!-- ── SCRIPTS ────────────────────────────────────────────────── -->
 <script>
 function switchOnbLang(lang, btn) {
-  // hide all panels
-  document.querySelectorAll('.onb-panel').forEach(p => p.style.display = 'none');
-  // show selected
+  var card = btn.closest('section.card');
+  card.querySelectorAll('.onb-panel').forEach(function(p) {
+    p.style.display = 'none';
+  });
   document.getElementById('onb-' + lang).style.display = 'block';
-  // reset all tab styles
-  document.querySelectorAll('.onb-tab').forEach(t => {
+  card.querySelectorAll('.onb-tab').forEach(function(t) {
     t.style.background = 'transparent';
     t.style.color = 'var(--text-secondary)';
     t.style.fontWeight = '500';
     t.style.boxShadow = 'none';
   });
-  // activate clicked tab
   btn.style.background = '#fff';
   btn.style.color = '#111827';
   btn.style.fontWeight = '600';
@@ -314,11 +323,11 @@ function switchOnbLang(lang, btn) {
 }
 
 function copyOnbEmail(id, btn) {
-  const text = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    const orig = btn.innerHTML;
+  var text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(function() {
+    var orig = btn.innerHTML;
     btn.innerHTML = '✓ Copiado!';
-    setTimeout(() => { btn.innerHTML = orig; }, 2000);
+    setTimeout(function() { btn.innerHTML = orig; }, 2000);
   });
 }
 </script>
