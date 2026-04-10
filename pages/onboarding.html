@@ -3,11 +3,10 @@
   <p>Tudo que você precisa para ativar um novo parceiro após a assinatura do contrato — e-mail de boas-vindas, guia de indicação e materiais de apoio.</p>
 </section>
 
-<!-- ── 01 FLUXO PÓS-ASSINATURA ──────────────────────────────── -->
+<!-- 01 FLUXO -->
 <section class="card">
   <h2>01 · Fluxo Pós-Assinatura</h2>
   <p>Passos a seguir assim que o contrato for assinado pelo parceiro.</p>
-
   <div class="flow-steps">
     <div class="step-card">
       <div class="step-number">1</div>
@@ -32,20 +31,19 @@
   </div>
 </section>
 
-<!-- ── 02 E-MAIL DE BOAS-VINDAS ──────────────────────────────── -->
+<!-- 02 EMAIL -->
 <section class="card">
   <h2>02 · E-mail de Boas-Vindas</h2>
   <p>Selecione o idioma, copie e edite os campos entre <strong>[colchetes]</strong> antes de enviar.</p>
 
-  <!-- Language tabs -->
-  <div style="display:flex;gap:8px;margin-bottom:0;border-bottom:1px solid var(--border-subtle);padding-bottom:0">
-    <button class="onb-tab active" onclick="switchOnbLang('pt',this)" style="border-radius:8px 8px 0 0;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,0.08);color:#111827;font-weight:600;margin:0;padding:8px 18px;transform:none">🇧🇷 Português</button>
-    <button class="onb-tab" onclick="switchOnbLang('es',this)" style="border-radius:8px 8px 0 0;margin:0;padding:8px 18px;transform:none;color:var(--text-secondary)">🇪🇸 Español</button>
-    <button class="onb-tab" onclick="switchOnbLang('en',this)" style="border-radius:8px 8px 0 0;margin:0;padding:8px 18px;transform:none;color:var(--text-secondary)">🇺🇸 English</button>
+  <div style="display:flex;gap:0;border-bottom:1px solid var(--border-subtle);margin-bottom:0">
+    <div id="tab-pt" onclick="onbTab('pt')" style="cursor:pointer;padding:8px 18px;border-radius:8px 8px 0 0;font-size:13px;font-weight:600;color:#111827;background:#fff;border:1px solid rgba(209,213,219,0.9);border-bottom:1px solid #fff;margin-bottom:-1px;user-select:none">🇧🇷 Português</div>
+    <div id="tab-es" onclick="onbTab('es')" style="cursor:pointer;padding:8px 18px;border-radius:8px 8px 0 0;font-size:13px;font-weight:500;color:var(--text-secondary);background:transparent;border:1px solid transparent;border-bottom:none;margin-bottom:-1px;user-select:none">🇪🇸 Español</div>
+    <div id="tab-en" onclick="onbTab('en')" style="cursor:pointer;padding:8px 18px;border-radius:8px 8px 0 0;font-size:13px;font-weight:500;color:var(--text-secondary);background:transparent;border:1px solid transparent;border-bottom:none;margin-bottom:-1px;user-select:none">🇺🇸 English</div>
   </div>
 
   <!-- PT -->
-  <div class="onb-panel" id="onb-pt" style="border:1px solid rgba(209,213,219,0.9);border-top:none;border-radius:0 8px 8px 8px;overflow:hidden">
+  <div id="onb-pt" style="border:1px solid rgba(209,213,219,0.9);border-top:none;border-radius:0 8px 8px 8px;overflow:hidden">
     <div style="background:var(--bg-subtle);padding:12px 16px;border-bottom:1px solid var(--border-subtle);font-size:13px;display:flex;flex-direction:column;gap:4px">
       <span><strong>De:</strong> Equipe de Parcerias · partners@amorimglobal.com</span>
       <span><strong>Para:</strong> [Nome do Parceiro] &lt;[email]&gt;</span>
@@ -82,15 +80,15 @@ partners@amorimglobal.com</pre>
     </div>
     <div style="padding:12px 16px;display:flex;justify-content:space-between;align-items:center;background:var(--bg-subtle)">
       <span style="font-size:12px;color:var(--text-muted)">Edite os campos entre [ ] antes de enviar</span>
-      <button class="btn-copy" onclick="copyOnbEmail('onb-body-pt',this)">
+      <div onclick="copyOnbEmail('onb-body-pt',this)" class="btn-copy" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         Copiar e-mail
-      </button>
+      </div>
     </div>
   </div>
 
   <!-- ES -->
-  <div class="onb-panel" id="onb-es" style="display:none;border:1px solid rgba(209,213,219,0.9);border-top:none;border-radius:0 8px 8px 8px;overflow:hidden">
+  <div id="onb-es" style="display:none;border:1px solid rgba(209,213,219,0.9);border-top:none;border-radius:0 8px 8px 8px;overflow:hidden">
     <div style="background:var(--bg-subtle);padding:12px 16px;border-bottom:1px solid var(--border-subtle);font-size:13px;display:flex;flex-direction:column;gap:4px">
       <span><strong>De:</strong> Equipo de Alianzas · partners@amorimglobal.com</span>
       <span><strong>Para:</strong> [Nombre del Socio] &lt;[email]&gt;</span>
@@ -127,15 +125,15 @@ partners@amorimglobal.com</pre>
     </div>
     <div style="padding:12px 16px;display:flex;justify-content:space-between;align-items:center;background:var(--bg-subtle)">
       <span style="font-size:12px;color:var(--text-muted)">Edite los campos entre [ ] antes de enviar</span>
-      <button class="btn-copy" onclick="copyOnbEmail('onb-body-es',this)">
+      <div onclick="copyOnbEmail('onb-body-es',this)" class="btn-copy" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         Copiar e-mail
-      </button>
+      </div>
     </div>
   </div>
 
   <!-- EN -->
-  <div class="onb-panel" id="onb-en" style="display:none;border:1px solid rgba(209,213,219,0.9);border-top:none;border-radius:0 8px 8px 8px;overflow:hidden">
+  <div id="onb-en" style="display:none;border:1px solid rgba(209,213,219,0.9);border-top:none;border-radius:0 8px 8px 8px;overflow:hidden">
     <div style="background:var(--bg-subtle);padding:12px 16px;border-bottom:1px solid var(--border-subtle);font-size:13px;display:flex;flex-direction:column;gap:4px">
       <span><strong>From:</strong> Partnerships Team · partners@amorimglobal.com</span>
       <span><strong>To:</strong> [Partner Name] &lt;[email]&gt;</span>
@@ -172,19 +170,18 @@ partners@amorimglobal.com</pre>
     </div>
     <div style="padding:12px 16px;display:flex;justify-content:space-between;align-items:center;background:var(--bg-subtle)">
       <span style="font-size:12px;color:var(--text-muted)">Edit fields in [ ] before sending</span>
-      <button class="btn-copy" onclick="copyOnbEmail('onb-body-en',this)">
+      <div onclick="copyOnbEmail('onb-body-en',this)" class="btn-copy" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         Copy email
-      </button>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── 03 GUIA DE INDICAÇÃO ──────────────────────────────────── -->
+<!-- 03 GUIA -->
 <section class="card">
   <h2>03 · Como Fazer uma Indicação</h2>
   <p>Instrua o parceiro a seguir esses passos para garantir o rastreamento correto e a elegibilidade da comissão.</p>
-
   <div class="flow-steps">
     <div class="step-card">
       <div class="step-number">1</div>
@@ -208,77 +205,55 @@ partners@amorimglobal.com</pre>
       <p style="margin:0;font-size:13px;color:var(--text-secondary)">Registro automático no CRM. Nossa equipe contacta o lead em até 48h úteis e mantém o parceiro informado.</p>
     </div>
   </div>
-
   <div class="warning-banner" style="margin-top:8px">
     <strong>⚠ Atenção:</strong> Indicações sem o campo "Quem indicou?" preenchido corretamente <strong>não são elegíveis para comissão</strong>. E-mails, WhatsApp e canais informais não são rastreados.
   </div>
-
   <div class="meeting-block" style="margin-top:16px">
     <h4>Formulário de Indicações (CRM)</h4>
     <p style="margin:0 0 10px;font-size:13px">Acesse o formulário oficial para registrar leads dos parceiros.</p>
-    <a href="https://amorimglobal.bitrix24.site/indicacoes/" target="_blank">
-      <button class="btn-primary" style="display:inline-flex;width:auto">
-        Acessar Formulário →
-      </button>
+    <a href="https://amorimglobal.bitrix24.site/indicacoes/" target="_blank" style="text-decoration:none">
+      <div class="btn-primary" style="display:inline-flex;width:auto;cursor:pointer">Acessar Formulário →</div>
     </a>
   </div>
 </section>
 
-<!-- ── 04 PARTNER KIT ────────────────────────────────────────── -->
+<!-- 04 PARTNER KIT -->
 <section class="card">
   <h2>04 · Partner Kit</h2>
   <p>Baixe o kit no idioma do parceiro e envie em anexo no e-mail de onboarding. Contém: apresentação da Amorim, portfólio de serviços e guia de indicação.</p>
-
   <div class="presentation-grid">
     <a href="partner-kit-pt.pdf" download="Partner-Kit-Amorim-PT.pdf" style="text-decoration:none;color:inherit">
       <div class="presentation-card">
         <div class="pres-icon">🇧🇷</div>
-        <div class="pres-info">
-          <h4>Partner Kit — Português</h4>
-          <p>Guia completo em português para parceiros brasileiros</p>
-        </div>
+        <div class="pres-info"><h4>Partner Kit — Português</h4><p>Guia completo em português para parceiros brasileiros</p></div>
         <span class="pres-arrow">↓</span>
       </div>
     </a>
     <a href="partner-kit-es.pdf" download="Partner-Kit-Amorim-ES.pdf" style="text-decoration:none;color:inherit">
       <div class="presentation-card">
         <div class="pres-icon">🇪🇸</div>
-        <div class="pres-info">
-          <h4>Partner Kit — Español</h4>
-          <p>Guía completa en español para socios latinoamericanos</p>
-        </div>
+        <div class="pres-info"><h4>Partner Kit — Español</h4><p>Guía completa en español para socios latinoamericanos</p></div>
         <span class="pres-arrow">↓</span>
       </div>
     </a>
     <a href="partner-kit-en.pdf" download="Partner-Kit-Amorim-EN.pdf" style="text-decoration:none;color:inherit">
       <div class="presentation-card">
         <div class="pres-icon">🇺🇸</div>
-        <div class="pres-info">
-          <h4>Partner Kit — English</h4>
-          <p>Complete guide in English for international partners</p>
-        </div>
+        <div class="pres-info"><h4>Partner Kit — English</h4><p>Complete guide in English for international partners</p></div>
         <span class="pres-arrow">↓</span>
       </div>
     </a>
   </div>
-  <p style="font-size:12px;color:var(--text-muted);margin-top:8px">
-    💡 Os PDFs devem estar na raiz do projeto Netlify (mesma pasta do <code>index.html</code>).
-  </p>
-</section>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:8px">💡 Os PDFs devem estar na raiz do projeto Netlify (mesma pasta do <code>index.html</code>).</p>
 </section>
 
-<!-- ── 05 COMISSÕES ──────────────────────────────────────────── -->
+<!-- 05 COMISSÕES -->
 <section class="card">
   <h2>05 · Estrutura de Comissões</h2>
   <p>Referência rápida para informar o parceiro durante o onboarding. O percentual exato consta no contrato assinado.</p>
-
   <table>
     <thead>
-      <tr>
-        <th>Tipo de Parceiro</th>
-        <th>Comissão</th>
-        <th>Incide sobre</th>
-      </tr>
+      <tr><th>Tipo de Parceiro</th><th>Comissão</th><th>Incide sobre</th></tr>
     </thead>
     <tbody>
       <tr>
@@ -291,10 +266,8 @@ partners@amorimglobal.com</pre>
         <td><strong style="color:var(--accent)">20%</strong></td>
         <td>Cada parcela efetivamente paga</td>
       </tr>
-
     </tbody>
   </table>
-
   <div class="highlight-box">
     <h4>📌 Regra importante</h4>
     <p style="margin:0;font-size:13px">A comissão incide sobre cada parcela <strong>efetivamente paga</strong> pelo cliente — não sobre o valor total do contrato. Se o cliente não pagar uma parcela, a comissão daquela parcela não é gerada.<br><br>
@@ -302,32 +275,44 @@ partners@amorimglobal.com</pre>
   </div>
 </section>
 
-<!-- ── SCRIPTS ────────────────────────────────────────────────── -->
+<!-- SCRIPTS -->
 <script>
-function switchOnbLang(lang, btn) {
-  var card = btn.closest('section.card');
-  card.querySelectorAll('.onb-panel').forEach(function(p) {
-    p.style.display = 'none';
-  });
-  document.getElementById('onb-' + lang).style.display = 'block';
-  card.querySelectorAll('.onb-tab').forEach(function(t) {
-    t.style.background = 'transparent';
-    t.style.color = 'var(--text-secondary)';
-    t.style.fontWeight = '500';
-    t.style.boxShadow = 'none';
-  });
-  btn.style.background = '#fff';
-  btn.style.color = '#111827';
-  btn.style.fontWeight = '600';
-  btn.style.boxShadow = '0 0 0 1px rgba(0,0,0,0.08)';
-}
+(function() {
+  function onbTab(lang) {
+    var langs = ['pt','es','en'];
+    langs.forEach(function(l) {
+      var panel = document.getElementById('onb-' + l);
+      var tab   = document.getElementById('tab-' + l);
+      if (!panel || !tab) return;
+      if (l === lang) {
+        panel.style.display = 'block';
+        tab.style.background    = '#fff';
+        tab.style.color         = '#111827';
+        tab.style.fontWeight    = '600';
+        tab.style.border        = '1px solid rgba(209,213,219,0.9)';
+        tab.style.borderBottom  = '1px solid #fff';
+      } else {
+        panel.style.display = 'none';
+        tab.style.background    = 'transparent';
+        tab.style.color         = 'var(--text-secondary)';
+        tab.style.fontWeight    = '500';
+        tab.style.border        = '1px solid transparent';
+        tab.style.borderBottom  = 'none';
+      }
+    });
+  }
 
-function copyOnbEmail(id, btn) {
-  var text = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(text).then(function() {
-    var orig = btn.innerHTML;
-    btn.innerHTML = '✓ Copiado!';
-    setTimeout(function() { btn.innerHTML = orig; }, 2000);
-  });
-}
+  function copyOnbEmail(id, el) {
+    var text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(function() {
+      var orig = el.innerHTML;
+      el.innerHTML = '&#10003; Copiado!';
+      setTimeout(function() { el.innerHTML = orig; }, 2000);
+    });
+  }
+
+  // expose globally
+  window.onbTab = onbTab;
+  window.copyOnbEmail = copyOnbEmail;
+})();
 </script>
